@@ -31,3 +31,23 @@ z_score_normalized <- (data - mean(data)) / sd(data)
 print(paste("Z-score normalized data: ", toString(z_score_normalized)))
 
 
+data(AirPassengers)
+start_value <- 100
+bin_width <- 150
+bins <- seq(start_value, max(AirPassengers) + bin_width, bin_width)
+hist(AirPassengers, breaks = bins, col = "skyblue", main = "Histogram of AirPassengers",
+     xlab = "Number of Passengers", ylab = "Frequency")
+grid()
+
+
+# Load the dataset
+data(mtcars)
+# Create a blank plot
+plot(1, 1, xlim = c(1, nrow(mtcars)), ylim = c(min(mtcars$mpg, mtcars$qsec), max(mtcars$mpg, mtcars$qsec)), type = "n", xlab = "Index", ylab = "Value", main = "Line Chart of mpg and qsec")
+# Add the lines
+lines(mtcars$mpg, type = "l", col = "blue")
+lines(mtcars$qsec, type = "l", col = "red")
+# Add a legend
+legend("topright", legend = c("mpg", "qsec"), col = c("blue", "red"), lty = 1)
+
+
